@@ -52,7 +52,7 @@ export default function Home() {
       setTimeout(() => {
         setCurrentSlide(currentSlide + 1);
         setIsTransitioning(false);
-      }, 300);
+      }, 400);
     }
   };
 
@@ -62,7 +62,7 @@ export default function Home() {
       setTimeout(() => {
         setCurrentSlide(currentSlide - 1);
         setIsTransitioning(false);
-      }, 300);
+      }, 400);
     }
   };
 
@@ -71,10 +71,10 @@ export default function Home() {
     setTimeout(() => {
       setCurrentSlide(index);
       setIsTransitioning(false);
-    }, 300);
+    }, 400);
   };
 
-  // Auto-advance slides every 25 seconds
+  // Auto-advance slides every 35 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       if (currentSlide < slides.length - 1) {
@@ -82,32 +82,40 @@ export default function Home() {
       } else {
         setCurrentSlide(0);
       }
-    }, 25000);
+    }, 35000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-orange-50">
+      {/* Floating Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-rose-200/30 to-pink-200/30 rounded-full blur-xl"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-orange-200/30 to-yellow-200/30 rounded-full blur-xl"></div>
+        <div className="absolute bottom-40 left-20 w-40 h-40 bg-gradient-to-br from-pink-200/20 to-rose-200/20 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-gradient-to-br from-orange-200/20 to-pink-200/20 rounded-full blur-xl"></div>
+      </div>
+
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-black/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light text-black text-center tracking-wider">
-            MIA MALKOVA
+      <header className="relative z-10 bg-white/70 backdrop-blur-md border-b border-rose-200/50">
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-800 text-center tracking-wider elegant-text">
+            Mia Malkova
           </h1>
-          <p className="text-center text-black/70 mt-1 text-sm sm:text-base font-light tracking-wide">
-            ELEGANT COMPANION & MEDIA PERSONALITY
+          <p className="text-center text-gray-600 mt-2 text-sm sm:text-base font-light tracking-wide">
+            Elegant Companion & Media Personality
           </p>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="pt-20 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="relative z-10 pt-8 pb-20 px-6">
+        <div className="max-w-5xl mx-auto">
           {/* Slide Container */}
-          <div className="relative bg-white rounded-none overflow-hidden">
+          <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-rose-200/30">
             {/* Slide Content */}
-            <div className={`transition-all duration-300 ease-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+            <div className={`transition-all duration-500 ease-out ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
               {/* Image Section */}
               <div className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[65vh] overflow-hidden">
                 {slides[currentSlide].image ? (
@@ -115,36 +123,36 @@ export default function Home() {
                     <img
                       src={slides[currentSlide].image!}
                       alt={`${slides[currentSlide].title} - Mia Malkova`}
-                      className="w-full h-full object-cover object-center rounded-[40px]"
+                      className="w-full h-full object-cover object-center rounded-2xl shadow-lg"
                     />
                   </div>
                 ) : (
-                  <div className="absolute inset-4 sm:inset-6 lg:inset-8 bg-gradient-to-br from-gray-100 to-gray-200 rounded-[40px] flex items-center justify-center">
+                  <div className="absolute inset-4 sm:inset-6 lg:inset-8 bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 bg-black/20 rounded-full mx-auto mb-6 flex items-center justify-center backdrop-blur-sm">
-                        <span className="text-2xl sm:text-3xl text-black font-light">{slides[currentSlide].id}</span>
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-rose-300 to-pink-300 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                        <span className="text-2xl sm:text-3xl text-white font-light">{slides[currentSlide].id}</span>
                       </div>
-                      <h2 className="text-xl sm:text-2xl font-light text-black">{slides[currentSlide].title}</h2>
+                      <h2 className="text-xl sm:text-2xl font-light text-gray-700 elegant-text">{slides[currentSlide].title}</h2>
                     </div>
                   </div>
                 )}
                 
-                {/* Dark overlay for better text readability */}
-                <div className="absolute inset-4 sm:inset-6 lg:inset-8 bg-black/30 rounded-[40px]"></div>
+                {/* Soft gradient overlay */}
+                <div className="absolute inset-4 sm:inset-6 lg:inset-8 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-2xl"></div>
                 
                 {/* Title overlay */}
-                <div className="absolute bottom-10 sm:bottom-12 lg:bottom-16 left-8 sm:left-12 lg:left-16 right-8 sm:right-12 lg:right-16">
-                  <h2 className="text-3xl sm:text-4xl lg:text-6xl font-light text-white leading-tight tracking-wide">
+                <div className="absolute bottom-8 sm:bottom-10 lg:bottom-12 left-8 sm:left-10 lg:left-12 right-8 sm:right-10 lg:right-12">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-white leading-tight tracking-wide elegant-text drop-shadow-lg">
                     {slides[currentSlide].title}
                   </h2>
                 </div>
               </div>
               
               {/* Text Content */}
-              <div className="bg-white text-black px-4 sm:px-8 lg:px-12 py-8 sm:py-12 lg:py-16">
+              <div className="bg-white/90 backdrop-blur-sm text-gray-700 px-6 sm:px-8 lg:px-10 py-8 sm:py-10 lg:py-12">
                 <div className="max-w-4xl mx-auto">
                   {slides[currentSlide].content.split('\n').map((paragraph, index) => (
-                    <p key={index} className="text-black/80 leading-relaxed mb-6 text-base sm:text-lg lg:text-xl font-light tracking-wide">
+                    <p key={index} className="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base lg:text-lg font-light tracking-wide">
                       {paragraph}
                     </p>
                   ))}
@@ -152,13 +160,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Navigation Arrows */}
+            {/* Soft Navigation Arrows */}
             <button
               onClick={prevSlide}
               disabled={currentSlide === 0}
-              className="absolute left-2 sm:left-4 lg:left-6 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black p-3 sm:p-4 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed z-10 backdrop-blur-sm border border-black/20 shadow-lg"
+              className="absolute left-2 sm:left-3 lg:left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-600 hover:text-gray-800 p-3 sm:p-4 lg:p-5 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed z-10 shadow-lg hover:shadow-xl hover:scale-110 border border-rose-200/30"
             >
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -166,42 +174,42 @@ export default function Home() {
             <button
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1}
-              className="absolute right-2 sm:right-4 lg:right-6 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black p-3 sm:p-4 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed z-10 backdrop-blur-sm border border-black/20 shadow-lg"
+              className="absolute right-2 sm:right-3 lg:right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-600 hover:text-gray-800 p-3 sm:p-4 lg:p-5 rounded-full transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed z-10 shadow-lg hover:shadow-xl hover:scale-110 border border-rose-200/30"
             >
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
 
-          {/* Slide Indicators */}
-          <div className="flex justify-center mt-8 sm:mt-12 space-x-2 sm:space-x-3">
+          {/* Soft Slide Indicators */}
+          <div className="flex justify-center mt-8 sm:mt-10 space-x-3 sm:space-x-4">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full transition-all duration-300 ${
                   index === currentSlide
-                    ? 'bg-black scale-125'
-                    : 'bg-black/30 hover:bg-black/50'
+                    ? 'bg-gradient-to-r from-rose-400 to-pink-400 scale-125 shadow-md'
+                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
                 }`}
               />
             ))}
           </div>
 
           {/* Slide Counter */}
-          <div className="text-center mt-6 sm:mt-8 text-black/60 text-sm sm:text-base font-light tracking-wide">
-            {currentSlide + 1} / {slides.length}
+          <div className="text-center mt-6 sm:mt-8 text-gray-500 text-sm sm:text-base font-light tracking-wide">
+            {currentSlide + 1} of {slides.length}
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-black/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-          <div className="text-center text-black/80">
-            <p className="text-sm sm:text-base lg:text-lg font-light tracking-wide">EXCLUSIVE EXPERIENCES, WHEREVER YOU ARE</p>
-            <p className="text-xs sm:text-sm mt-2 text-black/50 font-light tracking-wider">DISCRETION • ELEGANCE • AUTHENTICITY</p>
+      <footer className="relative z-10 bg-white/70 backdrop-blur-md border-t border-rose-200/50">
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          <div className="text-center text-gray-600">
+            <p className="text-base sm:text-lg lg:text-xl font-light tracking-wide elegant-text">Exclusive Experiences, Wherever You Are</p>
+            <p className="text-xs sm:text-sm mt-2 text-gray-500 font-light tracking-wider">Discretion • Elegance • Authenticity</p>
           </div>
         </div>
       </footer>
