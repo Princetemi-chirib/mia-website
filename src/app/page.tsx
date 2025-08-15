@@ -39,6 +39,31 @@ const slides: Slide[] = [
     title: "My Services",
     content: "Curated Experiences, Tailored to You\n\nI offer a discreet, upscale companion experience designed for those who value genuine connection, elegance, and exclusivity. Every encounter is intentional - whether brief or extended, each moment we share is crafted to leave a lasting impression.\n\nThis is not simply about time together - it's about presence, chemistry, and the art of meaningful interaction. My services are designed to accommodate a variety of needs and preferences, always with the utmost discretion and care.",
     image: "/5.jpeg"
+  },
+  {
+    id: 6,
+    title: "Offerings Include",
+    content: "• Private Engagements - Intimate one-on-one meetings, perfect for those seeking companionship in a relaxed, personal setting.\n\n• Social & Public Appearances - Make a statement with a poised and polished companion by your side for events, dinners, or evenings out.\n\n• Extended Experiences - Weekend getaways or overnight stays where deeper connection and shared adventure can unfold naturally.\n\n• Fly Me to You - Available to travel upon request, offering luxury companionship in the city of your choice.\n\nPlease Note:\nAll experiences are exclusively reserved for respectful, mature individuals. My time is best suited for those who appreciate discretion, clear communication, and emotional presence. Rates, availability, and further details are shared through private inquiry only."
+  },
+  {
+    id: 7,
+    title: "A Visual Reflection of Mia Malkova",
+    content: "Every image tells a story - not just of beauty, but of mood, moment, and meaning. This curated gallery offers a glimpse into my world: refined, magnetic, and deeply present. Each photo is more than a frame - it's a feeling, a whisper of an experience waiting to unfold."
+  },
+  {
+    id: 8,
+    title: "01 Elegant Portrait",
+    content: "Elegance is when the presence lingers longer than the glance.\"\nA nod to timeless beauty - graceful, poised, and quietly powerful."
+  },
+  {
+    id: 9,
+    title: "02 Real Reflection",
+    content: "Mirror moments, deeper meaning.\nStyle is surface. Presence is spirit.\nWhat you carry is louder than what you wear."
+  },
+  {
+    id: 10,
+    title: "03 Freedom Mood",
+    content: "Unscheduled, unbothered, unstoppable.\nThis is what it feels like to let go.\nTime bends where the soul feels free."
   }
 ];
 
