@@ -64,6 +64,26 @@ const slides: Slide[] = [
     id: 10,
     title: "03 Freedom Mood",
     content: "Unscheduled, unbothered, unstoppable.\nThis is what it feels like to let go.\nTime bends where the soul feels free."
+  },
+  {
+    id: 11,
+    title: "04 Selfie State of Mind",
+    content: "It's not just a face — it's a feeling.\nA pause to check in, not just check out.\nConfidence doesn't ask for attention. It owns the frame."
+  },
+  {
+    id: 12,
+    title: "05 Soft Escape",
+    content: "Moments away from the noise.\nA breath of stillness, wrapped in sun.\nThis is the luxury of quiet spaces."
+  },
+  {
+    id: 13,
+    title: "06 Lingerie or Bedroom Setting",
+    content: "Intimacy isn't always physical - it begins with being seen.\nAn invitation to vulnerability, to presence, to something deeper."
+  },
+  {
+    id: 14,
+    title: "07 Black & White / Artistic Mood",
+    content: "There's beauty in the shadows - and strength in stillness.\nA stripped-back glimpse of essence - raw, honest, and unfiltered."
   }
 ];
 
